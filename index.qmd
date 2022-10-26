@@ -1,5 +1,5 @@
 ---
-title: "."
+title: "Jake Beardsley Website"
 listing:
   contents: posts
   sort: "date desc"
