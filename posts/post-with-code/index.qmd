@@ -3,15 +3,9 @@ title: "Project 1"
 author: "Jake Beardsley"
 date: "2022-12-4"
 categories: [NBA]
-image: "Po.jpg"
+image: "image.jpg"
 ---
 
----
-title: "Project 1"
-author: "Jake Beardsley"
-output: pdf_document
-date: "2022-11-01"
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -22,7 +16,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-![](Po.jpg)
 
 ## Project Objectives
 
