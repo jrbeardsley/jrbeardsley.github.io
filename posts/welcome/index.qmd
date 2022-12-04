@@ -1,11 +1,11 @@
 ---
 title: "Welcome To My Blog"
-author: "Tristan O'Malley"
+author: "Jake Beardsley"
 date: "2022-10-17"
 categories: [news]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+Hi! I'm Jake Beardsley, a Virginia Tech Graduate Student in the Statistics Department!
 
 ![](thumbnail.jpg)
 
