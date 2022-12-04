@@ -1,9 +1,146 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
-date: "2022-10-20"
-categories: [news, code, analysis]
-image: "image.jpg"
+title: "Project 1"
+author: "Jake Beardsley"
+date: "2022-12-4"
+categories: [NBA]
+image: "PotW.jpg"
 ---
 
-This is a post with executable code.
+---
+title: "Project 1"
+author: "Jake Beardsley"
+output: pdf_document
+date: "2022-11-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+# libraries
+library(tidyverse)
+```
+
+## Project Objectives
+
+This project aims to explore the relationship between age and success in the NBA as measured by building and comparing various models of how many times a given player or a given age range of players have been awarded the NBA's Player of the Week award. This initial study can then be extended, using additional data sources on remaining contract length, to model the contract year effect, in which players are purported to put forth more effort and thereby produce better results in the final year of their contract with the goal of negotiating a better one the following season. While this is a small-scale study, the use of Player of the Week as the award of interest as opposed to a more prestigious end-of-season award like Most Valuable Player or even Sixth Man of the Year yields more data that allows for more rigorous analysis. Finally, this project looks to find if there is a relationship between the length of time a franchise has existed and the number of Players of the Week the franchise has had.
+
+
+## Data
+
+### Data import
+
+```{r, include=FALSE}
+PotW_Data<-read_csv("C:/Users/Jake/Documents/Grad School/Fall 2022/Stat Programming/NBA_player_of_the_week.csv")
+Champ<-read_csv("C:/Users/Jake/Documents/Grad School/Fall 2022/Stat Programming/Champions.csv")
+Team_Ages<-read_csv("C:/Users/Jake/Documents/Grad School/Fall 2022/Stat Programming/Team Ages.csv")
+Team_Other<-read_csv("C:/Users/Jake/Documents/Grad School/Fall 2022/Stat Programming/Team Other Data.csv")
+```
+
+This Player of the Week dataset comes from Kaggle user Jacob Baruch, and includes data on players heights, weights, ages, and number of seasons in the NBA for all Player of the Week award winners from the 1979-1980 season through the 2019-2020 season, up to March 9th before the COVID-19 virus caused a change in the regular season schedule. The Team Ages, Champs, and Team_Other datasets come from the NBA official website.
+
+### Data preparation (tidying/engineering)
+
+```{r, include=FALSE}
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="Charlotte Bobcats","Charlotte Hornets")
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="New Jersey Nets","Brooklyn Nets")
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="Kansas City Kings","Sacramento Kings")
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="New Orleans Hornets","New Orleans Pelicans")
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="San Diego Clippers","Los Angeles Clippers")
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="Seattle SuperSonics","Oklahoma City Thunder")
+PotW_Data$Team<-replace(PotW_Data$Team,PotW_Data$Team=="Washington Bullets","Washington Wizards")
+PotW_Data$Position<-replace(PotW_Data$Position,PotW_Data$Position=="F","SF")
+PotW_Data$Position<-replace(PotW_Data$Position,PotW_Data$Position=="FC","PF")
+PotW_Data$Position<-replace(PotW_Data$Position,PotW_Data$Position=="F-C","PF")
+PotW_Data$Position<-replace(PotW_Data$Position,PotW_Data$Position=="GF","SG")
+PotW_Data$Position<-replace(PotW_Data$Position,PotW_Data$Position=="G","PG")
+PotW_Data$Position<-replace(PotW_Data$Position,PotW_Data$Position=="G-F","SG")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Atlanta Hawks", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Miami Heat", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Charlotte Hornets", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Orlando Magic", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Washington Wizards", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Boston Celtics", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Toronto Raptors", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Philadelphia Sixers", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "New York Knicks", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Brooklyn Nets", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Indiana Pacers", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Detroit Pistons", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Milwaukee Bucks", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Chicago Bulls", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Cleveland Cavaliers", "East")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Los Angeles Lakers", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Los Angeles Clippers", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Golden State Warriors", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Phoenix Suns", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Sacramento Kings", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Houston Rockets", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Dallas Mavericks", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Memphis Grizzlies", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "New Orleans Pelicans", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "San Antonio Spurs", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Minnesota Timberwolves", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Oklahoma City Thunder", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Denver Nuggets", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Utah Jazz", "West")
+PotW_Data$Conference<-replace(PotW_Data$Conference,PotW_Data$Team == "Portland Trail Blazers", "West")
+```
+
+
+The data tidying process began with correcting outdated team names to their current counterparts using the replace function, as teams had moved cities or changed mascot names. Next inconsistent positions titles were changed to the traditional center, power forward, small forward, shooting guard, and point guard delineations. Finally, the conference column was fixed en masse, as there were numerous errors and inconsistencies, such as multiple instances of the Los Angeles Clippers being labeled as part of the Eastern Conference.
+
+### Data summarization
+
+```{r}
+par(mfrow = c(2,2))
+boxplot(PotW_Data$`Height CM`, main="Height in Centimeters")
+boxplot(PotW_Data$`Weight KG`, main="Weight in Kilograms")
+boxplot(PotW_Data$`Seasons in league`, main="Seasons in League")
+boxplot(table(PotW_Data$Team), main="Team")
+```
+
+
+
+### Data visualization 
+
+```{r}
+plot(Team_Ages$Age, Team_Other$Championships)
+plot(Team_Ages$Age, Team_Ages$PotW_Count)
+```
+
+#### transformations - center/scale - dummy variables
+
+```{r, include=FALSE}
+PotW_Data<- PotW_Data %>% mutate(PG = case_when(Position == "PG" ~ 1, TRUE ~ 0))
+PotW_Data<- PotW_Data %>% mutate(SG = case_when(Position == "SG" ~ 1, TRUE ~ 0))
+PotW_Data<- PotW_Data %>% mutate(SF = case_when(Position == "SF" ~ 1, TRUE ~ 0))
+PotW_Data<- PotW_Data %>% mutate(PF = case_when(Position == "PF" ~ 1, TRUE ~ 0))
+PotW_Data<- PotW_Data %>% mutate(C = case_when(Position == "C" ~ 1, TRUE ~ 0))
+Team_Ages$PotW_Count<-table(PotW_Data$Team)
+PotW_Data<- PotW_Data %>% mutate(East = case_when(Conference == "East" ~ 1, TRUE ~ 0))
+```
+
+#### correlation analysis
+
+```{r}
+cor(Team_Ages$Age, Team_Ages$PotW_Count)
+cor(Team_Ages$Age, Team_Other$Championships)
+cor(Team_Ages$PotW_Count, Team_Other$Championships)
+```
+
+## Modeling
+
+```{r}
+PotW_Titles<-glm(`Title Season`~`Seasons in league`+`Height CM` + `Weight KG`+East, data=PotW_Data)
+Number_PotW<-lm(Team_Ages$PotW_Count~Team_Ages$Age)
+Number_Titles<-lm(Team_Other$Championships~Team_Ages$Age+Team_Ages$PotW_Count)
+summary(PotW_Titles)
+summary(Number_PotW)
+summary(Number_Titles)
+```
+
+## Evaluation - Discussion of what you saw/did
+
+The unfortunate conclusion is that these models are, by and large, not very good. With the best R-Squared of the two linear models being only 0.41, it would suggest that the data in these sets is not very useful for modeling a team's ability to win a championship, with one exception. The Seasons in League variable for the Players of the Week data was extremely significant in the general linear model explaining title odds, so what that would potentially suggest is that teams with skilled veteran players have a better shot at an NBA championship, which makes sense in context, and can be useful for explaining the rationale of general managers who seek out older players with good reputations as free agents if they already have a team that is in playoff contention. Going forward, explaining the contract year effect would require a completely different dataset, as contracts are required to measure a potential increase in salaries to see if that phenomenon exists. Player performance statistics would also be useful for the other models, as the predictors the datasets provided were not particularly significant explanatory variables.
