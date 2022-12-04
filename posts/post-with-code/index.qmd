@@ -3,7 +3,6 @@ title: "Project 1"
 author: "Jake Beardsley"
 date: "2022-12-4"
 categories: [NBA]
-image: "PotW.jpg"
 ---
 
 ---
