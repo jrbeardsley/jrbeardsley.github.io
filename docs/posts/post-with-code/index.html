@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
-<meta name="dcterms.date" content="2022-10-20">
+<meta name="author" content="Jake Beardsley">
+<meta name="dcterms.date" content="2022-11-01">
 
-<title>Jake Beardsley Website - Post With Code</title>
+<title>Jake Beardsley Website - Project 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -99,11 +162,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">Project 1</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">NBA</div>
               </div>
                   </div>
   </div>
@@ -114,14 +175,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Harlow Malloc </p>
+               <p>Jake Beardsley </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 20, 2022</p>
+        <p class="date">2022-11-01</p>
       </div>
     </div>
       
@@ -138,9 +199,156 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a post with executable code.</p>
+<section id="project-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="project-objectives">Project Objectives</h2>
+<p>This project aims to explore the relationship between age and success in the NBA as measured by building and comparing various models of how many times a given player or a given age range of players have been awarded the NBA’s Player of the Week award. This initial study can then be extended, using additional data sources on remaining contract length, to model the contract year effect, in which players are purported to put forth more effort and thereby produce better results in the final year of their contract with the goal of negotiating a better one the following season. While this is a small-scale study, the use of Player of the Week as the award of interest as opposed to a more prestigious end-of-season award like Most Valuable Player or even Sixth Man of the Year yields more data that allows for more rigorous analysis. Finally, this project looks to find if there is a relationship between the length of time a franchise has existed and the number of Players of the Week the franchise has had.</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="data-import" class="level3">
+<h3 class="anchored" data-anchor-id="data-import">Data import</h3>
+<p>This Player of the Week dataset comes from Kaggle user Jacob Baruch, and includes data on players heights, weights, ages, and number of seasons in the NBA for all Player of the Week award winners from the 1979-1980 season through the 2019-2020 season, up to March 9th before the COVID-19 virus caused a change in the regular season schedule. The Team Ages, Champs, and Team_Other datasets come from the NBA official website.</p>
+</section>
+<section id="data-preparation-tidyingengineering" class="level3">
+<h3 class="anchored" data-anchor-id="data-preparation-tidyingengineering">Data preparation (tidying/engineering)</h3>
+<p>The data tidying process began with correcting outdated team names to their current counterparts using the replace function, as teams had moved cities or changed mascot names. Next inconsistent positions titles were changed to the traditional center, power forward, small forward, shooting guard, and point guard delineations. Finally, the conference column was fixed en masse, as there were numerous errors and inconsistencies, such as multiple instances of the Los Angeles Clippers being labeled as part of the Eastern Conference.</p>
+</section>
+<section id="data-summarization" class="level3">
+<h3 class="anchored" data-anchor-id="data-summarization">Data summarization</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PotW_Data<span class="sc">$</span><span class="st">`</span><span class="at">Height CM</span><span class="st">`</span>, <span class="at">main=</span><span class="st">"Height in Centimeters"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PotW_Data<span class="sc">$</span><span class="st">`</span><span class="at">Weight KG</span><span class="st">`</span>, <span class="at">main=</span><span class="st">"Weight in Kilograms"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(PotW_Data<span class="sc">$</span><span class="st">`</span><span class="at">Seasons in league</span><span class="st">`</span>, <span class="at">main=</span><span class="st">"Seasons in League"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(<span class="fu">table</span>(PotW_Data<span class="sc">$</span>Team), <span class="at">main=</span><span class="st">"Team"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization">Data visualization</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Team_Ages<span class="sc">$</span>Age, Team_Other<span class="sc">$</span>Championships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Team_Ages<span class="sc">$</span>Age, Team_Ages<span class="sc">$</span>PotW_Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `PotW_Count`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="transformations---centerscale---dummy-variables" class="level4">
+<h4 class="anchored" data-anchor-id="transformations---centerscale---dummy-variables">transformations - center/scale - dummy variables</h4>
+</section>
+<section id="correlation-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-analysis">correlation analysis</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Team_Ages<span class="sc">$</span>Age, Team_Ages<span class="sc">$</span>PotW_Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3762072</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Team_Ages<span class="sc">$</span>Age, Team_Other<span class="sc">$</span>Championships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5106178</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Team_Ages<span class="sc">$</span>PotW_Count, Team_Other<span class="sc">$</span>Championships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5504075</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="modeling" class="level2">
+<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>PotW_Titles<span class="ot">&lt;-</span><span class="fu">glm</span>(<span class="st">`</span><span class="at">Title Season</span><span class="st">`</span><span class="sc">~</span><span class="st">`</span><span class="at">Seasons in league</span><span class="st">`</span><span class="sc">+</span><span class="st">`</span><span class="at">Height CM</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">Weight KG</span><span class="st">`</span><span class="sc">+</span>East, <span class="at">data=</span>PotW_Data)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Number_PotW<span class="ot">&lt;-</span><span class="fu">lm</span>(Team_Ages<span class="sc">$</span>PotW_Count<span class="sc">~</span>Team_Ages<span class="sc">$</span>Age)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Number_Titles<span class="ot">&lt;-</span><span class="fu">lm</span>(Team_Other<span class="sc">$</span>Championships<span class="sc">~</span>Team_Ages<span class="sc">$</span>Age<span class="sc">+</span>Team_Ages<span class="sc">$</span>PotW_Count)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PotW_Titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = `Title Season` ~ `Seasons in league` + `Height CM` + 
+    `Weight KG` + East, data = PotW_Data)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.32030  -0.12044  -0.07387  -0.02485   1.02146  
+
+Coefficients:
+                      Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         -2.261e-01  2.178e-01  -1.038   0.2995    
+`Seasons in league`  1.800e-02  2.341e-03   7.688 2.87e-14 ***
+`Height CM`          6.431e-06  1.438e-03   0.004   0.9964    
+`Weight KG`          2.116e-03  9.631e-04   2.197   0.0282 *  
+East                -1.865e-03  1.548e-02  -0.120   0.9041    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 0.07938843)
+
+    Null deviance: 112.56  on 1343  degrees of freedom
+Residual deviance: 106.30  on 1339  degrees of freedom
+AIC: 416.2
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Number_PotW)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Team_Ages$PotW_Count ~ Team_Ages$Age)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.288 -11.359  -2.236   9.275  34.994 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)    24.7323     9.7783   2.529   0.0173 *
+Team_Ages$Age   0.3770     0.1755   2.149   0.0405 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 15.85 on 28 degrees of freedom
+Multiple R-squared:  0.1415,    Adjusted R-squared:  0.1109 
+F-statistic: 4.616 on 1 and 28 DF,  p-value: 0.04046</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Number_Titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Team_Other$Championships ~ Team_Ages$Age + Team_Ages$PotW_Count)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-4.580 -1.999 -0.814  1.177 11.008 
+
+Coefficients:
+                     Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)          -7.20731    2.36415  -3.049   0.0051 **
+Team_Ages$Age         0.09157    0.04131   2.217   0.0352 * 
+Team_Ages$PotW_Count  0.10787    0.04122   2.617   0.0144 * 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.458 on 27 degrees of freedom
+Multiple R-squared:  0.4103,    Adjusted R-squared:  0.3666 
+F-statistic: 9.392 on 2 and 27 DF,  p-value: 0.0008011</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluation---discussion-of-what-you-sawdid" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation---discussion-of-what-you-sawdid">Evaluation - Discussion of what you saw/did</h2>
+<p>The unfortunate conclusion is that these models are, by and large, not very good. With the best R-Squared of the two linear models being only 0.41, it would suggest that the data in these sets is not very useful for modeling a team’s ability to win a championship, with one exception. The Seasons in League variable for the Players of the Week data was extremely significant in the general linear model explaining title odds, so what that would potentially suggest is that teams with skilled veteran players have a better shot at an NBA championship, which makes sense in context, and can be useful for explaining the rationale of general managers who seek out older players with good reputations as free agents if they already have a team that is in playoff contention. Going forward, explaining the contract year effect would require a completely different dataset, as contracts are required to measure a potential increase in salaries to see if that phenomenon exists. Player performance statistics would also be useful for the other models, as the predictors the datasets provided were not particularly significant explanatory variables.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
