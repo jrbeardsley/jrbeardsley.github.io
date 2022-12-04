@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
+![](Po.jpg)
+
 ## Project Objectives
 
 This project aims to explore the relationship between age and success in the NBA as measured by building and comparing various models of how many times a given player or a given age range of players have been awarded the NBA's Player of the Week award. This initial study can then be extended, using additional data sources on remaining contract length, to model the contract year effect, in which players are purported to put forth more effort and thereby produce better results in the final year of their contract with the goal of negotiating a better one the following season. While this is a small-scale study, the use of Player of the Week as the award of interest as opposed to a more prestigious end-of-season award like Most Valuable Player or even Sixth Man of the Year yields more data that allows for more rigorous analysis. Finally, this project looks to find if there is a relationship between the length of time a franchise has existed and the number of Players of the Week the franchise has had.
