@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jake Beardsley">
-<meta name="dcterms.date" content="2022-11-01">
+<meta name="dcterms.date" content="2022-12-04">
 
 <title>Jake Beardsley Website - Project 1</title>
 <style>
@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2022-11-01</p>
+        <p class="date">December 4, 2022</p>
       </div>
     </div>
       
@@ -249,11 +249,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Team_Ages<span class="sc">$</span>Age, Team_Ages<span class="sc">$</span>PotW_Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3762072</code></pre>
+<pre><code>[1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Team_Ages<span class="sc">$</span>Age, Team_Other<span class="sc">$</span>Championships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5106178</code></pre>
+<pre><code>[1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Team_Ages<span class="sc">$</span>PotW_Count, Team_Other<span class="sc">$</span>Championships)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -306,18 +306,19 @@ lm(formula = Team_Ages$PotW_Count ~ Team_Ages$Age)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--25.288 -11.359  -2.236   9.275  34.994 
+-25.545 -12.158  -2.319   9.296  34.455 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept)    24.7323     9.7783   2.529   0.0173 *
-Team_Ages$Age   0.3770     0.1755   2.149   0.0405 *
+(Intercept)    24.5056     9.9040   2.474   0.0199 *
+Team_Ages$Age   0.3872     0.1784   2.170   0.0390 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 15.85 on 28 degrees of freedom
-Multiple R-squared:  0.1415,    Adjusted R-squared:  0.1109 
-F-statistic: 4.616 on 1 and 28 DF,  p-value: 0.04046</code></pre>
+Residual standard error: 16.04 on 27 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.1485,    Adjusted R-squared:  0.1169 
+F-statistic: 4.708 on 1 and 27 DF,  p-value: 0.03899</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Number_Titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -326,20 +327,21 @@ Call:
 lm(formula = Team_Other$Championships ~ Team_Ages$Age + Team_Ages$PotW_Count)
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--4.580 -1.999 -0.814  1.177 11.008 
+    Min      1Q  Median      3Q     Max 
+-4.5862 -2.1890 -0.8713  1.1346 10.9106 
 
 Coefficients:
                      Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)          -7.20731    2.36415  -3.049   0.0051 **
-Team_Ages$Age         0.09157    0.04131   2.217   0.0352 * 
-Team_Ages$PotW_Count  0.10787    0.04122   2.617   0.0144 * 
+(Intercept)          -7.19282    2.39824  -2.999   0.0059 **
+Team_Ages$Age         0.09434    0.04228   2.231   0.0345 * 
+Team_Ages$PotW_Count  0.10558    0.04207   2.509   0.0187 * 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 3.458 on 27 degrees of freedom
-Multiple R-squared:  0.4103,    Adjusted R-squared:  0.3666 
-F-statistic: 9.392 on 2 and 27 DF,  p-value: 0.0008011</code></pre>
+Residual standard error: 3.508 on 26 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.4132,    Adjusted R-squared:  0.3681 
+F-statistic: 9.155 on 2 and 26 DF,  p-value: 0.0009776</code></pre>
 </div>
 </div>
 </section>
